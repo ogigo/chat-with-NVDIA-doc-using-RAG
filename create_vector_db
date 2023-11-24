@@ -1,0 +1,15 @@
+from langchain.document_loaders.csv_loader import CSVLoader
+from langchain.vectorstores import FAISS
+from embedding import instructor_embeddings
+
+vectordb_file_path = "faiss_index"
+
+
+def create_vector_db():
+    loader = CSVLoader(file_path='codebasics_faqs.csv', source_column="prompt")
+    data = loader.load()
+
+    vectordb = FAISS.from_documents(documents=data,
+                                    embedding=instructor_embeddings)
+
+    vectordb.save_local(vectordb_file_path)
