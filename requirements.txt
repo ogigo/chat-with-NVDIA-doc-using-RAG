@@ -1,0 +1,10 @@
+langchain==0.0.340
+tiktoken==0.5.1
+faiss-cpu==1.7.4
+protobuf~=3.19.0
+InstructorEmbedding
+sentence-transformers
+pandas
+streamlit
+altair==4
+google-generativeai
